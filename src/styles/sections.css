@@ -1,0 +1,777 @@
+/* Cinematic Sections Stylesheet for Extra Hypermarket Brand Film Website */
+
+/* Scroll Experience Track — Perfectly calibrated 800vh height for flowing 240-frame sequence */
+#scroll-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 800vh;
+  will-change: transform;
+}
+
+/* Master Sequence Cinematic Stages */
+.cinema-stage {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(60px, 10vh, 120px) clamp(16px, 4vw, 32px);
+  pointer-events: none;
+  contain: layout style paint;
+}
+
+.cinema-stage-content {
+  pointer-events: auto;
+  max-width: 1160px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2.5vh, 28px);
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  contain: layout style;
+}
+
+.cinema-stage-content.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CINEMATIC NARRATION — Large Italic Voiceover Text
+   ═══════════════════════════════════════════════════════════ */
+.cinema-narration {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  max-width: 700px;
+  padding: 0 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  position: sticky;
+  top: 45vh;
+  z-index: 25;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.cinema-narration.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PHASE HEIGHTS — Calibrated to smooth 800vh flow
+   Phase 1: 0–140vh  (17.5%) — Aerial Approach
+   Phase 2: 140–300vh (20%)   — Entering Store & 22,000 Sq Ft Scale
+   Phase 3: 300–540vh (30%)   — Aisle Tour (Produce, Bakery, Grocery, Meat, Home, Appliances)
+   Phase 4: 540–700vh (20%)   — Location, Offers, Socials, FAQ
+   Phase 5: 700–800vh (12.5%) — Final Resolve & Footer (100% Transparent)
+   ═══════════════════════════════════════════════════════════ */
+.cinema-phase-1 {
+  min-height: 140vh;
+}
+
+.cinema-phase-2 {
+  min-height: 160vh;
+}
+
+.cinema-phase-3 {
+  min-height: 240vh;
+}
+
+.cinema-phase-4 {
+  min-height: 160vh;
+}
+
+.cinema-phase-5 {
+  min-height: 100vh;
+  position: relative;
+  z-index: 20;
+}
+
+/* Metadata & Badges */
+.meta-tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-pill {
+  background: rgba(34, 168, 73, 0.18);
+  border: 1px solid rgba(34, 168, 73, 0.5);
+  color: #34d399;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* HERO SECTION — Clean, Crisp, Bright White Title */
+#phase-1-approach {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(90px, 12vh, 130px) clamp(16px, 4vw, 32px) 30px;
+}
+
+#content-hero {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 2vh, 22px);
+  max-width: 1200px;
+}
+
+.hero-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 9.5vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.95);
+  margin: 4px 0;
+}
+
+.hero-sub-location {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--brand-green);
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  max-width: 900px;
+}
+
+.hero-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 20, 10, 0.85);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass-bright);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.hero-rating-badge .stars {
+  color: #facc15;
+  letter-spacing: 2px;
+}
+
+.hero-actions-wrap {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.hero-scroll-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  animation: floatDown 2s infinite ease-in-out;
+  padding-top: 16px;
+}
+
+.hero-scroll-prompt .scroll-mouse-cue {
+  width: 20px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  position: relative;
+}
+
+.hero-scroll-prompt .scroll-mouse-cue::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 6px;
+  background: var(--brand-green);
+  border-radius: 2px;
+  animation: wheelAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes wheelAnim {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 10px); opacity: 0; }
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* Standard Cinematic Stage Titles */
+.cinema-title-large {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7.5vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.cinema-body-text {
+  font-family: var(--font-primary);
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 700px;
+  line-height: 1.65;
+}
+
+/* Section 02: Kinetic Horizontal Typography */
+.kinetic-text-strip {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  padding: clamp(20px, 4vh, 40px) 0;
+}
+
+.kinetic-text-row {
+  display: flex;
+  white-space: nowrap;
+  gap: clamp(16px, 3vw, 30px);
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8vw, 7.5rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.kinetic-text-row span.accent {
+  color: var(--brand-green);
+}
+
+/* Editorial Glass Cards — Translucent */
+.editorial-glass-box {
+  background: rgba(8, 20, 10, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass-bright);
+  padding: clamp(24px, 4vw, 44px) clamp(20px, 5vw, 50px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-luxe);
+  max-width: 860px;
+  width: 100%;
+}
+
+.highlights-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.highlight-pill-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-family: var(--font-primary);
+  font-size: clamp(0.78rem, 1vw, 0.88rem);
+  font-weight: 600;
+  color: #ffffff;
+  transition: var(--transition-smooth);
+}
+
+.highlight-pill-item:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--brand-green);
+  transform: translateY(-2px);
+}
+
+/* BENTO GRID: STORE OVERVIEW & SCALE — Translucent Glass */
+#phase-2-scale {
+  padding: clamp(60px, 10vh, 120px) clamp(16px, 4vw, 32px);
+  background: transparent;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.bento-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1240px;
+  margin: 36px auto 0;
+}
+
+.bento-col-8 { grid-column: span 8; }
+.bento-col-4 { grid-column: span 4; }
+.bento-col-6 { grid-column: span 6; }
+.bento-col-12 { grid-column: span 12; }
+
+.bento-card-inner {
+  padding: clamp(24px, 3.5vw, 36px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.bento-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--brand-red);
+}
+
+.bento-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Real Google Reviews Grid */
+.reviews-quote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.review-item-card {
+  background: rgba(34, 168, 73, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-glass);
+  padding: 20px;
+  border-radius: 18px;
+  text-align: left;
+}
+
+.review-stars {
+  color: #facc15;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.review-text {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* PHASE 4: KOYILANDY LOCATION & INTERACTIVE MAP — Translucent */
+#phase-4-location {
+  min-height: 100vh;
+  padding: clamp(60px, 10vh, 120px) clamp(16px, 4vw, 32px);
+  position: relative;
+  z-index: 20;
+  background: transparent;
+  pointer-events: auto;
+}
+
+.store-location-split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(24px, 4vw, 40px);
+  max-width: 1240px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.store-meta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-info-block {
+  background: rgba(8, 20, 10, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loc-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loc-item .loc-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+}
+
+.loc-item .loc-val {
+  font-family: var(--font-primary);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.interactive-map-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-glass-bright);
+  box-shadow: var(--shadow-luxe);
+  height: clamp(320px, 45vh, 460px);
+  background: rgba(8, 18, 8, 0.55);
+}
+
+.interactive-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.map-badge-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(8, 20, 8, 0.75);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  padding: 12px 16px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* PHASE 4: OFFERS & CAMPAIGNS */
+#phase-4-offers {
+  padding: clamp(60px, 10vh, 110px) clamp(16px, 4vw, 32px);
+  background: transparent;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.offers-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1240px;
+  margin: 36px auto 0;
+}
+
+.offer-editorial-card {
+  padding: clamp(24px, 3.5vw, 36px) clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.offer-editorial-card .offer-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+}
+
+.offer-editorial-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.offer-editorial-card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* PHASE 4: LIFE AT EXTRA (SOCIAL) */
+#phase-4-social {
+  padding: clamp(60px, 10vh, 110px) 0;
+  background: transparent;
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.social-gallery-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  margin-top: 36px;
+  animation: socialScroll 45s linear infinite;
+}
+
+.social-gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.social-film-card {
+  background: rgba(8, 20, 10, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 24px;
+  width: clamp(280px, 32vw, 340px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: var(--transition-smooth);
+}
+
+.social-film-card:hover {
+  border-color: var(--brand-red);
+  transform: translateY(-5px);
+}
+
+.social-film-card .card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-film-card .tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-green);
+}
+
+.social-film-card .icon-lead {
+  font-size: 2.2rem;
+  margin: 4px 0;
+}
+
+.social-film-card h4 {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.social-film-card p {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.social-film-card .malayalam-caption {
+  font-size: 0.92rem;
+  color: #f1f5f9;
+  line-height: 1.6;
+  font-family: var(--font-primary);
+}
+
+@keyframes socialScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PHASE 5: FINAL RESOLVE — FULLY VISIBLE & TRANSPARENT BACKDROP
+   ═══════════════════════════════════════════════════════════ */
+#phase-5-resolve {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(60px, 10vh, 100px) clamp(16px, 4vw, 32px);
+  background: transparent !important;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+  opacity: 1 !important;
+}
+
+.final-huge-brand {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 14vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+}
+
+.final-brand-slogan {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.8vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-transform: uppercase;
+  max-width: 900px;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Minimal Footer — Translucent Glass */
+.minimal-brand-footer {
+  background: rgba(4, 10, 4, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-glass);
+  padding: clamp(40px, 6vh, 60px) clamp(16px, 4vw, 40px) 30px;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.footer-content-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: clamp(24px, 4vw, 40px);
+  margin-bottom: 40px;
+}
+
+.footer-col-lead p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-links-col h4 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.footer-links-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-col ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-links-col ul li a:hover {
+  color: var(--brand-green);
+}
+
+.footer-bottom-strip {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Responsiveness Guardrails */
+@media (max-width: 1024px) {
+  .bento-col-8, .bento-col-4, .bento-col-6 {
+    grid-column: span 12;
+  }
+  .store-location-split {
+    grid-template-columns: 1fr;
+  }
+  .footer-content-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-content-wrap {
+    grid-template-columns: 1fr;
+  }
+  .editorial-glass-box {
+    padding: 24px 16px;
+  }
+  .hero-actions-wrap {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+  .hero-actions-wrap a {
+    width: 100%;
+  }
+  .map-badge-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

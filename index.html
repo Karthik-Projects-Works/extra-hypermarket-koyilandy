@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXTRA HYPERMARKET — Everything You Need. And A Little More. | Koyilandy, Kerala</title>
+  <meta name="description" content="22,000 sq ft big-budget hypermarket in Koyilandy, Kerala. Rated 4.0 stars by 875+ shoppers. Farm-fresh produce, live bakery, groceries, home appliances and everyday value under one roof.">
+  
+  <!-- Official Brand Favicon -->
+  <link rel="icon" type="image/png" href="./src/logo/logo.png">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="./src/styles/sections.css">
+</head>
+<body>
+  <!-- Preloader Screen with Fullscreen Transparent Animated Video Only -->
+  <div id="sequence-preloader">
+    <div class="loader-video-wrap">
+      <video id="preloader-video" class="loader-video-element" autoplay muted playsinline loop style="display: none;">
+        <source src="./src/logo/animate_this_logo_to_a_transpa.mp4" type="video/mp4">
+      </video>
+      <canvas id="preloader-canvas" class="loader-video-element"></canvas>
+    </div>
+  </div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
+  <!-- High-Clarity Film Vignette & Tone Overlay -->
+  <div class="cinema-overlay-noise"></div>
+
+  <!-- Fixed 240-Frame Sequence Canvas -->
+  <div id="canvas-container">
+    <canvas id="sequence-canvas"></canvas>
+  </div>
+
+  <!-- Minimal Floating Glass Navigation Bar with Larger Logo & Bigger Menu -->
+  <header>
+    <nav class="glass-nav" id="main-nav" aria-label="Main Navigation">
+      <a href="#phase-1-approach" class="nav-brand-wrap" title="Extra Hypermarket Koyilandy">
+        <img src="./src/logo/logo.png" alt="Extra Hypermarket Logo" class="nav-logo-img">
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#phase-1-approach">Home</a></li>
+        <li><a href="#phase-2-entrance">About</a></li>
+        <li><a href="#phase-2-scale">Highlights</a></li>
+        <li><a href="#phase-3-departments">Aisles</a></li>
+        <li><a href="#phase-3-amenities">Amenities</a></li>
+        <li><a href="#phase-4-offers">Offers</a></li>
+        <li><a href="#phase-4-location">Location</a></li>
+        <li><a href="#phase-4-faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Sound Ambience Controller -->
+        <button class="sound-toggle-btn" id="sound-btn" title="Toggle Supermarket Ambience Sound">
+          <div class="sound-wave" id="sound-wave">
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+          </div>
+          <span id="sound-text">SOUND ON</span>
+        </button>
+
+        <a href="#phase-4-location" class="nav-cta-btn">
+          VISIT STORE →
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Live Location & Scene Indicator HUD -->
+  <div class="hud-tracker">
+    <div class="hud-pill">
+      <span class="pulse-dot"></span>
+      <span>OPEN 8 AM – 10 PM • 22,000 SQ FT FLOOR</span>
+    </div>
+    <div class="hud-pill">
+      <span style="color: var(--text-subtle);">LOC:</span>
+      <strong id="hud-location-text">KOYILANDY, KERALA</strong>
+    </div>
+  </div>
+
+  <!-- Master Cinematic Scroll Container -->
+  <main id="scroll-container">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PHASE 1: AERIAL APPROACH & HERO
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="cinema-phase-1">
+      <section class="cinema-stage" id="phase-1-approach">
+        <div class="cinema-stage-content active" id="content-hero">
+          <div class="hero-rating-badge">
+            <span class="stars">★★★★☆</span>
+            <span>4.0 (875+ GOOGLE REVIEWS)</span>
+            <span style="color: var(--brand-green); font-weight: 800;">✓ VERIFIED</span>
+          </div>
+          
+          <h1 class="hero-main-title">MORE THAN A<br>HYPERMARKET.</h1>
+          <p class="hero-sub-location">FM3P+828, HIGHWAY, KOLLAM, KOYILANDY, KERALA 673307</p>
+          
+          <div class="hero-actions-wrap">
+            <a href="#phase-2-entrance" class="btn-primary">
+              <span>EXPLORE EXTRA ↓</span>
+            </a>
+            <a href="tel:08943212121" class="btn-secondary">
+              <span>📞 089432 12121</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-scroll-prompt">
+          <div class="scroll-mouse-cue"></div>
+          <span>SCROLL TO WALK THROUGH</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- Cinematic Narration 1 -->
+    <div class="cinema-narration" id="narration-1">
+      "Koyilandy's landmark shopping destination. Where every family finds everything they need... and a little more."
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PHASE 2: ENTERING EXTRA & 22,000 SQ FT SCALE BENTO
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="cinema-phase-2">
+      <!-- Section 01 — The Experience -->
+      <section class="cinema-stage" id="phase-2-entrance">
+        <div class="cinema-stage-content" id="content-entrance">
+          <div class="border-beam-card" style="max-width: 920px; width: 100%;">
+            <div class="border-beam-inner">
+              <span class="meta-tag">01 / ESTABLISHED FEB 18, 2023</span>
+              <h2 class="cinema-title-large" style="margin-top: 8px;">A NEW SHOPPING<br>EXPERIENCE.</h2>
+              <p class="cinema-body-text" style="color: #ffffff; font-weight: 500; margin: 16px auto 0;">
+                Located strategically on the Koilandi National Highway, Extra Hypermarket is a landmark 22,000 sq. ft. multi-department retail haven built on exceptional customer care, guaranteed fresh sourcing, and wholesale-competitive pricing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 02 — Bento Grid Store Scale -->
+      <section id="phase-2-scale">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+          <span class="meta-tag">02 / HYPERMARKET AT A GLANCE</span>
+          <h2 class="cinema-title-large">KOYILANDY'S SHOPPING LANDMARK.</h2>
+          <p class="cinema-body-text" style="margin: 12px auto 0;">
+            Everything you need for your pantry, kitchen, home and lifestyle under one expansive, air-conditioned roof.
+          </p>
+        </div>
+
+        <div class="bento-grid-wrap">
+          <!-- Tile 1: 22,000 Sq Ft Scale -->
+          <div class="glow-card bento-col-8">
+            <div class="bento-card-inner">
+              <div>
+                <span class="meta-pill">FLAGSHIP RETAIL FLOOR</span>
+                <div class="bento-stat-num" style="margin-top: 14px; color: var(--brand-red);">22,000 SQ. FT.</div>
+                <p style="color: #ffffff; font-size: 1.15rem; font-weight: 600; margin-top: 8px;">
+                  Spacious, extra-wide aisles designed for relaxed family shopping, effortless trolley navigation, and thousands of curated products.
+                </p>
+              </div>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="highlight-pill-item">🛒 Extra-Wide Aisles</span>
+                <span class="highlight-pill-item">❄️ 100% Air Conditioned</span>
+                <span class="highlight-pill-item">🚗 50+ Vehicle Parking</span>
+                <span class="highlight-pill-item">⚡ 8 Express Checkouts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tile 2: Google Rating & Popular Times -->
+          <div class="glow-card bento-col-4">
+            <div class="bento-card-inner">
+              <div>
+                <span class="meta-pill" style="color: #facc15; border-color: rgba(250, 204, 21, 0.4); background: rgba(250, 204, 21, 0.1);">GOOGLE VERIFIED</span>
+                <div class="bento-stat-num" style="color: #facc15; margin-top: 14px;">★ 4.0</div>
+                <span class="bento-stat-label">875+ AUTHENTIC REVIEWS</span>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); padding: 14px; border-radius: 14px; border: 1px solid var(--border-glass);">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green); font-weight: 700;">POPULAR TIMES</span>
+                <p style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-top: 4px;">Live: Open · Closes 10:00 PM</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2px;">Average visit time: 20–30 min</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tile 3: Real Verified Customer Quotes -->
+          <div class="glow-card bento-col-12">
+            <div class="bento-card-inner">
+              <div>
+                <span class="meta-pill">WHAT SHOPPERS SAY</span>
+                <h3 style="font-family: var(--font-display); font-size: 2.2rem; color: #ffffff; margin-top: 10px;">
+                  TRUSTED BY THOUSANDS OF FAMILIES ACROSS KOZHIKODE
+                </h3>
+              </div>
+
+              <div class="reviews-quote-grid">
+                <div class="review-item-card">
+                  <div class="review-stars">★★★★★</div>
+                  <p class="review-text">
+                    "Best price and most groceries, fruits, veg items available here. Friendly and supportive staff with convenient parking."
+                  </p>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green); margin-top: 10px; display: inline-block;">
+                    — Verified Local Customer (Google Review)
+                  </span>
+                </div>
+
+                <div class="review-item-card">
+                  <div class="review-stars">★★★★★</div>
+                  <p class="review-text">
+                    "One of the things that I like most about Extra Hypermarket is its wide selection of fresh produce. The fruits and vegetables are always fresh and of high quality."
+                  </p>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green); margin-top: 10px; display: inline-block;">
+                    — Daily Grocery Shopper
+                  </span>
+                </div>
+
+                <div class="review-item-card">
+                  <div class="review-stars">★★★★★</div>
+                  <p class="review-text">
+                    "The best supermarket in Koyilandy with plenty of products and offers. Customer service is good with competitive wholesale pricing."
+                  </p>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green); margin-top: 10px; display: inline-block;">
+                    — Highway Commuter
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Cinematic Narration 2 -->
+    <div class="cinema-narration" id="narration-2">
+      "Step inside. A world of farm-fresh harvests, aromatic bakeries, and endless choice awaits."
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PHASE 3: AISLE TOUR & COMPREHENSIVE DEPARTMENTS
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="cinema-phase-3">
+      <!-- Section 03 — Kinetic Variety -->
+      <section class="cinema-stage" id="phase-3-variety">
+        <div class="cinema-stage-content" id="content-variety">
+          <span class="meta-tag">03 / COMPLETE VARIETY</span>
+          <h2 class="cinema-title-large">EVERYTHING<br>UNDER ONE ROOF.</h2>
+          
+          <div class="kinetic-text-strip">
+            <div class="kinetic-text-row" id="kinetic-row">
+              <span>FARM FRESH PRODUCE</span> • <span class="accent">LIVE ARTISAN BAKERY</span> • <span>AUTHENTIC SPICES</span> • <span class="accent">COASTAL SEAFOOD</span> • <span>HOME & APPLIANCES</span> • <span>DAIRY & FROZEN</span> •
+            </div>
+          </div>
+
+          <p class="cinema-body-text">
+            From daily farm arrivals and Malabar spice blends to dinnerware and electronic appliances — structured into dedicated hypermarket wings for effortless shopping.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 03B — Detailed Department Aisles Grid -->
+      <section id="phase-3-departments" style="padding: 60px 24px; position: relative; z-index: 20; pointer-events: auto;">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+          <span class="meta-pill">EXPLORE OUR AISLES</span>
+          <h2 class="cinema-title-large" style="margin-top: 12px;">CURATED DEPARTMENTS</h2>
+          <p class="cinema-body-text" style="margin: 10px auto 0;">
+            Every department is stocked daily with certified quality brands and farm-direct supplies.
+          </p>
+        </div>
+
+        <div class="offers-editorial-grid" style="margin-top: 36px;">
+          <!-- Dept 1 -->
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-green);">AISLE 01 • 5:00 AM HARVEST</span>
+              <h3>FRESH PRODUCE & GREENS</h3>
+            </div>
+            <p>Direct farm crates arriving daily from Wayanad and Nilgiri growers. Crisp organic vegetables, tropical fruits, and herbs hand-sorted for quality.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥬 Leafy Greens</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥭 Seasonal Fruits</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥕 Root Veggies</span>
+            </div>
+          </div>
+
+          <!-- Dept 2 -->
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-red);">AISLE 02 • LIVE BAKERY & DELI</span>
+              <h3>ARTISAN BAKERY & SNACKS</h3>
+            </div>
+            <p>Oven-fresh artisan breads, tea-time Malabar snacks, savory hot puffs, cakes, cookies, and dessert delights baked right on premises.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥖 Warm Breads</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🎂 Celebration Cakes</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥟 Evening Snacks</span>
+            </div>
+          </div>
+
+          <!-- Dept 3 -->
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-green);">AISLE 03 • STAPLES & SPICES</span>
+              <h3>KERALA GROCERY & OILS</h3>
+            </div>
+            <p>Premium Kerala Matta rice, specialty grains, cold-pressed coconut & sesame oils, whole Malabar spices, pulses, and leading household pantry brands.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🌾 Kerala Matta Rice</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥥 Cold Pressed Oils</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🌶️ Wayanad Spices</span>
+            </div>
+          </div>
+
+          <!-- Dept 4 -->
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-red);">AISLE 04 • BUTCHERY & SEAFOOD</span>
+              <h3>FRESH MEAT & COASTAL CATCH</h3>
+            </div>
+            <p>Hygienically maintained temperature-controlled meat cuts and fresh Malabar coast seafood delivered every morning from local harbors.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🐟 Coastal Fish</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🍗 Fresh Poultry</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🥩 Clean Cuts</span>
+            </div>
+          </div>
+
+          <!-- Dept 5 -->
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-green);">AISLE 05 • COOKWARE & HOME</span>
+              <h3>KITCHENWARE & CROCKERY</h3>
+            </div>
+            <p>Heavy-gauge cookware, non-stick sets, stainless steel storage, dinner sets, glassware, storage containers, and cleaning essentials for every home.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🍳 Cookware Sets</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🍽️ Dinnerware</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">📦 Storage Jars</span>
+            </div>
+          </div>
+
+          <!-- Dept 6 -->
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-red);">AISLE 06 • APPLIANCES & ELECTRONICS</span>
+              <h3>HOME APPLIANCES</h3>
+            </div>
+            <p>Top branded mixer grinders, induction stoves, electric kettles, steam irons, blenders, and daily electronics with manufacturer warranties.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">⚡ Mixer Grinders</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🫖 Kettles & Stoves</span>
+              <span class="highlight-pill-item" style="font-size: 0.72rem; padding: 4px 10px;">🛡️ Brand Warranties</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 03C — Store Amenities & Shopper Comfort -->
+      <section id="phase-3-amenities" style="padding: 60px 24px; position: relative; z-index: 20; pointer-events: auto;">
+        <div class="border-beam-card" style="max-width: 1240px; margin: 0 auto;">
+          <div class="border-beam-inner">
+            <span class="meta-tag">SHOPPING PRIVILEGES</span>
+            <h2 class="cinema-title-large" style="margin-top: 8px;">BUILT FOR COMFORT & SPEED</h2>
+            
+            <div class="reviews-quote-grid" style="margin-top: 24px;">
+              <div class="review-item-card" style="border-color: var(--border-glass-bright);">
+                <div style="font-size: 2rem; margin-bottom: 8px;">❄️</div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 6px;">100% Air Conditioned</h4>
+                <p class="review-text">Enjoy comfortable, climate-controlled retail halls in all seasons across the entire 22,000 sq ft floor.</p>
+              </div>
+
+              <div class="review-item-card" style="border-color: var(--border-glass);">
+                <div style="font-size: 2rem; margin-bottom: 8px;">⚡</div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 6px;">8+ Express Billing</h4>
+                <p class="review-text">High-speed barcode scanner checkout desks designed to eliminate queues even during weekend rush hours.</p>
+              </div>
+
+              <div class="review-item-card" style="border-color: var(--border-glass-bright);">
+                <div style="font-size: 2rem; margin-bottom: 8px;">🚗</div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 6px;">Dedicated Free Parking</h4>
+                <p class="review-text">Spacious front parking on the National Highway accommodating 50+ four-wheelers and two-wheelers.</p>
+              </div>
+
+              <div class="review-item-card" style="border-color: var(--border-glass);">
+                <div style="font-size: 2rem; margin-bottom: 8px;">♿</div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 6px;">Accessible Wide Aisles</h4>
+                <p class="review-text">Zero-barrier wide flooring allowing smooth transit for shopping trolleys, baby strollers, and wheelchairs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Cinematic Narration 3 -->
+    <div class="cinema-narration" id="narration-3">
+      "Unbeatable prices on the brands you trust. Extra quality, extra savings, every single day."
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PHASE 4: LOCATION, OFFERS, SOCIALS & FAQ
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="cinema-phase-4">
+      <!-- Section 04 — Koyilandy Location & Interactive Map -->
+      <section id="phase-4-location">
+        <div class="store-location-split">
+          <div class="store-meta-card">
+            <span class="meta-pill" style="color: var(--brand-red); border-color: var(--brand-red-glow);">HIGHWAY FLAGSHIP STORE</span>
+            <h2 class="cinema-title-large" style="font-size: clamp(2.8rem, 5.5vw, 5.5rem); text-align: left;">
+              RIGHT HERE.<br>IN KOYILANDY.
+            </h2>
+
+            <div class="location-info-block">
+              <div class="loc-item">
+                <span class="loc-label">Address & Plus Code</span>
+                <span class="loc-val">FM3P+828, Highway, Kollam, Koyilandy, Kerala 673307</span>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Registered: 42/90A, Kollam, Viyyur, Koyilandy</span>
+              </div>
+              <div class="loc-item">
+                <span class="loc-label">Store Hours</span>
+                <span class="loc-val">8:00 AM – 10:00 PM (Open 7 Days a Week)</span>
+              </div>
+              <div class="loc-item">
+                <span class="loc-label">Direct Helpline & Enquiries</span>
+                <span class="loc-val">089432 12121 / +91 8943 21 21 21</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="https://maps.google.com/?q=11.453167,75.684998" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>GET DIRECTIONS →</span>
+              </a>
+              <a href="tel:08943212121" class="btn-secondary">
+                <span>CALL 089432 12121</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="interactive-map-frame">
+            <iframe 
+              title="Extra Hypermarket Koyilandy Map Location"
+              src="https://maps.google.com/maps?q=11.453167,75.684998&z=15&output=embed"
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+            <div class="map-badge-overlay">
+              <div>
+                <strong style="font-family: var(--font-display); font-size: 1.25rem; color: #ffffff; letter-spacing: 0.05em;">EXTRA HYPERMARKET</strong>
+                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green);">COORDINATES: 11.453167, 75.684998</p>
+              </div>
+              <a href="https://maps.google.com/?q=11.453167,75.684998" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.75rem; padding: 8px 16px;">
+                OPEN MAPS
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 05 — Offers & Promotions -->
+      <section id="phase-4-offers">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+          <span class="meta-tag">WEEKLY SAVINGS & CAMPAIGNS</span>
+          <h2 class="cinema-title-large">THERE'S ALWAYS<br>SOMETHING EXTRA.</h2>
+          <p class="cinema-body-text" style="margin: 14px auto 0;">
+            Regular festival bonanzas, seasonal harvest discounts and mega promotional campaigns for Koyilandy shoppers.
+          </p>
+        </div>
+
+        <div class="offers-editorial-grid">
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-green);">DAILY HARVEST</span>
+              <h3>MORNING FRESH BONANZA</h3>
+            </div>
+            <p>Early morning arrivals of farm-direct produce and fresh vegetables at dedicated wholesale rates.</p>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--brand-green); font-weight: 700;">DAILY FROM 8:00 AM</span>
+          </div>
+
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-red);">WEEKEND HAUL</span>
+              <h3>WEEKEND FAMILY MEGA SAVINGS</h3>
+            </div>
+            <p>Unmatched value across pulses, specialty rice, cold-pressed oils, cookware, and packaged household brands.</p>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--brand-red); font-weight: 700;">EVERY FRI • SAT • SUN</span>
+          </div>
+
+          <div class="glow-card offer-editorial-card">
+            <div>
+              <span class="offer-eyebrow" style="color: var(--brand-gold);">FESTIVAL BONANZA</span>
+              <h3>ONAM, VISHU & FESTIVAL SPECIALS</h3>
+            </div>
+            <p>Special Payasam ingredients, authentic Malabar spice sets, dinnerware sets, and customized festive gift hampers.</p>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--brand-gold); font-weight: 700;">FESTIVE CELEBRATIONS</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 06 — Real Malayalam Social Updates -->
+      <section id="phase-4-social">
+        <div style="text-align: center; max-width: 820px; margin: 0 auto; padding: 0 20px;">
+          <span class="meta-tag">AUTHENTIC COMMUNITY UPDATES</span>
+          <h2 class="cinema-title-large">LIFE AT EXTRA.</h2>
+          <p class="cinema-body-text" style="margin: 12px auto 0;">
+            Authentic moments, festival greetings, and daily community cheer from @extrahypermarket Koyilandy.
+          </p>
+        </div>
+
+        <div class="social-gallery-track" id="social-track">
+          <div class="social-film-card">
+            <div class="card-head">
+              <span class="tag">@extrahypermarket</span>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">INSTAGRAM</span>
+            </div>
+            <div class="icon-lead">🌼</div>
+            <p class="malayalam-caption">
+              "ഐശ്വര്യ പൂർണ്ണമായ ഈ ഓണക്കാലം ആഘോഷമാക്കാം എക്സ്ട്രാക്കൊപ്പം. ഏവർക്കും ഞങ്ങളുടെ ഹൃദയം നിറഞ്ഞ ഓണാശംസകൾ!"
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-gold);">#HappyOnam #ExtraHypermarket</span>
+          </div>
+
+          <div class="social-film-card">
+            <div class="card-head">
+              <span class="tag">@extrahypermarket</span>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">INSTAGRAM</span>
+            </div>
+            <div class="icon-lead">✨</div>
+            <p class="malayalam-caption">
+              "ഐശ്വര്യവും സന്തോഷവും നിറഞ്ഞൊരു ഓണം ഓരോ വീട്ടിലും എത്തട്ടെ. ഏവർക്കും എക്സ്ട്രാ ഹൈപ്പർ മാർക്കറ്റിൻ്റെ ഉത്രാട ദിനാശംസകൾ."
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-gold);">#Onam2026 #KoyilandyVibes</span>
+          </div>
+
+          <div class="social-film-card">
+            <div class="card-head">
+              <span class="tag">@extrahypermarket</span>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">INSTAGRAM</span>
+            </div>
+            <div class="icon-lead">🥬</div>
+            <h4>5:00 AM Farm Fresh Harvests</h4>
+            <p>Direct farm crates rolling into our 22,000 sq ft Koyilandy floor every morning.</p>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green);">#FarmFresh #Koyilandy</span>
+          </div>
+
+          <div class="social-film-card">
+            <div class="card-head">
+              <span class="tag">@extrahypermarket</span>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">FACEBOOK</span>
+            </div>
+            <div class="icon-lead">🛒</div>
+            <h4>22,000 Sq Ft Shopping Comfort</h4>
+            <p>Spacious aisles and fast express billing for stress-free grocery trips.</p>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-green);">#ExtraShopping #Kerala</span>
+          </div>
+
+          <!-- Duplicated for seamless loop -->
+          <div class="social-film-card">
+            <div class="card-head">
+              <span class="tag">@extrahypermarket</span>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">INSTAGRAM</span>
+            </div>
+            <div class="icon-lead">🌼</div>
+            <p class="malayalam-caption">
+              "ഐശ്വര്യ പൂർണ്ണമായ ഈ ഓണക്കാലം ആഘോഷമാക്കാം എക്സ്ട്രാക്കൊപ്പം. ഏവർക്കും ഞങ്ങളുടെ ഹൃദയം നിറഞ്ഞ ഓണാശംസകൾ!"
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-gold);">#HappyOnam #ExtraHypermarket</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 07 — Frequent Questions FAQ Accordion -->
+      <section id="phase-4-faq" style="padding: 70px 24px; position: relative; z-index: 20; pointer-events: auto;">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+          <span class="meta-pill">HELP & FREQUENT QUESTIONS</span>
+          <h2 class="cinema-title-large" style="margin-top: 12px;">EVERYTHING YOU WANT TO KNOW</h2>
+        </div>
+
+        <div class="bento-grid-wrap" style="max-width: 960px; margin: 30px auto 0;">
+          <div class="glow-card bento-col-12" style="padding: 24px;">
+            <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">📍 Where is Extra Hypermarket located in Koyilandy?</h4>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+              Extra Hypermarket is located directly on the Koilandi National Highway at <strong>FM3P+828, Highway, Kollam, Koyilandy, Kerala 673307</strong> (also recorded as 42/90A, Kollam, Viyyur). It features easy highway entry and spacious dedicated parking.
+            </p>
+          </div>
+
+          <div class="glow-card bento-col-12" style="padding: 24px;">
+            <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">⏰ What are the hypermarket opening hours?</h4>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+              We are open <strong>every day from 8:00 AM to 10:00 PM</strong>, all 7 days of the week, including Sundays and public holidays.
+            </p>
+          </div>
+
+          <div class="glow-card bento-col-12" style="padding: 24px;">
+            <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">🚗 Is parking available at the store?</h4>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+              Yes! We have an expansive, free dedicated parking lot right in front of the store with capacity for 50+ cars and two-wheelers.
+            </p>
+          </div>
+
+          <div class="glow-card bento-col-12" style="padding: 24px;">
+            <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">💳 What payment modes do you accept?</h4>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+              We accept all UPI applications (GPay, PhonePe, Paytm), Visa/Mastercard/RuPay Credit & Debit cards, Sodexo/Meal Cards, and Cash at all 8+ billing counters.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Cinematic Narration 4 -->
+    <div class="cinema-narration" id="narration-4">
+      "Extra Hypermarket Koyilandy. Everything you need. And a little more."
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PHASE 5: FINAL RESOLVE & FOOTER
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="cinema-phase-5">
+      <section id="phase-5-resolve">
+        <img src="./src/logo/logo.png" alt="Extra Hypermarket Logo" style="height: clamp(80px, 12vw, 130px); width: auto; object-fit: contain; margin-bottom: 24px; filter: drop-shadow(0 0 35px var(--brand-red-glow));">
+        
+        <h2 class="final-brand-slogan" style="color: #ffffff;">EVERYTHING YOU NEED.<br><span style="color: var(--brand-red);">AND A LITTLE MORE.</span></h2>
+        <p style="font-family: var(--font-mono); font-size: 1.1rem; letter-spacing: 0.25em; color: var(--text-muted); margin-bottom: 36px;">
+          KOYILANDY • KERALA
+        </p>
+
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="#phase-4-location" class="btn-primary">
+            <span>VISIT EXTRA STORE →</span>
+          </a>
+          <a href="tel:08943212121" class="btn-accent-green">
+            <span>📞 089432 12121</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Minimal Brand Footer -->
+      <footer class="minimal-brand-footer" id="phase-5-footer">
+        <div class="footer-content-wrap">
+          <div class="footer-col-lead">
+            <img src="./src/logo/logo.png" alt="Extra Hypermarket" style="height: 48px; width: auto; object-fit: contain; margin-bottom: 14px;">
+            <p>22,000 sq ft big-budget hypermarket in Koyilandy, Kerala. Dedicated to top brands, guaranteed fresh harvests, competitive pricing, and friendly customer care.</p>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>EXPLORE</h4>
+            <ul>
+              <li><a href="#phase-1-approach">Home</a></li>
+              <li><a href="#phase-2-entrance">About Extra</a></li>
+              <li><a href="#phase-2-scale">22,000 Sq Ft Highlights</a></li>
+              <li><a href="#phase-3-departments">Store Aisles</a></li>
+              <li><a href="#phase-4-offers">Promotions & Bonanzas</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>VISIT</h4>
+            <ul>
+              <li><a href="#phase-4-location">FM3P+828, Highway, Koyilandy</a></li>
+              <li><a href="#phase-4-location">Open Daily (8:00 AM – 10:00 PM)</a></li>
+              <li><a href="https://maps.google.com/?q=11.453167,75.684998" target="_blank" rel="noopener noreferrer">Google Maps Route</a></li>
+              <li><a href="#phase-4-faq">Customer FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>CONTACT</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 12px;">
+              FM3P+828, Highway, Kollam, Koyilandy, Kerala 673307
+            </p>
+            <a href="tel:08943212121" style="font-family: var(--font-mono); font-weight: 700; color: var(--brand-red); text-decoration: none; font-size: 1rem; display: block; margin-bottom: 6px;">
+              📞 089432 12121
+            </a>
+            <a href="http://extrahypermarket.com" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); text-decoration: none;">
+              🌐 extrahypermarket.com
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom-strip">
+          <span>© 2026 EXTRA HYPERMARKET. ALL RIGHTS RESERVED. (EST. FEB 18, 2023)</span>
+          <span>KOYILANDY, KOZHIKODE, KERALA</span>
+        </div>
+      </footer>
+    </div>
+
+  </main>
+
+  <!-- Main JavaScript App Entry Point -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
