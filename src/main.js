@@ -267,7 +267,7 @@ if (kineticRow) {
 const phases = [
   'phase-1-approach',
   'phase-2-entrance', 'phase-2-scale',
-  'phase-3-variety', 'phase-3-fresh', 'phase-3-value', 'phase-3-family',
+  'phase-3-variety', 'phase-3-departments', 'phase-3-amenities',
   'phase-4-location', 'phase-4-offers', 'phase-4-social',
   'phase-5-resolve'
 ];
