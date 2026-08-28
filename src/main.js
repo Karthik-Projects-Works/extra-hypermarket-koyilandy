@@ -2,55 +2,25 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FrameSequencePlayer } from './sequence/framePlayer.js';
+import { ChromaKeyer } from './sequence/chromaKeyer.js';
 import { soundManager } from './audio/soundManager.js';
+
+import './styles/main.css';
+import './styles/sections.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 0. Real-time Transparent Video Chroma Keyer for Preloader Video
+// 0. GPU-accelerated Video Chroma Keyer for Preloader Video
 const preloaderVideo = document.getElementById('preloader-video');
 const preloaderCanvas = document.getElementById('preloader-canvas');
+let chromaKeyer = null;
+let preloaderDismissed = false;
+
 if (preloaderVideo && preloaderCanvas) {
-  const pctx = preloaderCanvas.getContext('2d', { willReadFrequently: true });
-  let isKeyingActive = true;
-
-  function renderTransparentVideo() {
-    if (!isKeyingActive) return;
-    if (preloaderVideo.readyState >= 2 && !preloaderVideo.paused && !preloaderVideo.ended) {
-      if (preloaderCanvas.width !== preloaderVideo.videoWidth && preloaderVideo.videoWidth) {
-        preloaderCanvas.width = preloaderVideo.videoWidth;
-        preloaderCanvas.height = preloaderVideo.videoHeight;
-      }
-      const w = preloaderCanvas.width || 800;
-      const h = preloaderCanvas.height || 600;
-      pctx.drawImage(preloaderVideo, 0, 0, w, h);
-
-      try {
-        const frame = pctx.getImageData(0, 0, w, h);
-        const data = frame.data;
-        const len = data.length;
-        for (let i = 0; i < len; i += 4) {
-          const r = data[i], g = data[i + 1], b = data[i + 2];
-          // Key out gray/white checkerboard pattern pixels
-          if (r > 185 && g > 185 && b > 185 && Math.abs(r - g) < 22 && Math.abs(g - b) < 22) {
-            data[i + 3] = 0; // 100% transparent
-          }
-        }
-        pctx.putImageData(frame, 0, 0);
-      } catch (err) {
-        // Fallback for CORS or canvas read
-      }
-    }
-
-    const preloaderEl = document.getElementById('sequence-preloader');
-    if (preloaderEl && preloaderEl.style.display !== 'none') {
-      requestAnimationFrame(renderTransparentVideo);
-    } else {
-      isKeyingActive = false;
-    }
-  }
-
+  chromaKeyer = new ChromaKeyer(preloaderCanvas);
   preloaderVideo.play().catch(() => {});
-  requestAnimationFrame(renderTransparentVideo);
+  // Stop chroma key rendering once preloader is dismissed
+  window.addEventListener('preloader-dismiss', () => { preloaderDismissed = true; });
 }
 
 // 1. Initialize Smooth Scroll with Lenis — flowing momentum & zero-stuck inertia
@@ -71,10 +41,14 @@ const lenis = new Lenis({
 const canvas = document.getElementById('sequence-canvas');
 const player = new FrameSequencePlayer(canvas);
 
-// Single unified ticker — drives Lenis and continuous smooth frame lerping
+// Single unified ticker — drives Lenis, frame lerping, and preloader chroma key
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
   player.update();
+  // GPU chroma key for preloader video (runs until preloader is dismissed)
+  if (chromaKeyer && !preloaderDismissed) {
+    chromaKeyer.render(preloaderVideo);
+  }
 });
 gsap.ticker.lagSmoothing(0);
 
@@ -173,6 +147,7 @@ const soundText = document.getElementById('sound-text');
 if (soundBtn) {
   soundBtn.addEventListener('click', () => {
     const isPlaying = soundManager.toggleMute();
+    soundBtn.setAttribute('aria-pressed', String(isPlaying));
     if (isPlaying) {
       soundBtn.classList.add('playing');
       if (soundText) soundText.innerText = 'SOUND ON';
@@ -180,6 +155,24 @@ if (soundBtn) {
       soundBtn.classList.remove('playing');
       if (soundText) soundText.innerText = 'SOUND MUTED';
     }
+  });
+}
+
+// 4b. Mobile Navigation Hamburger Toggle
+const hamburger = document.getElementById('nav-hamburger');
+const navMenu = document.getElementById('nav-menu');
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
   });
 }
 
@@ -232,7 +225,6 @@ const narrations = [
   { id: 'narration-2', start: 0.20, end: 0.36 },
   { id: 'narration-3', start: 0.40, end: 0.66 },
   { id: 'narration-4', start: 0.70, end: 0.86 },
-  { id: 'narration-5', start: 0.90, end: 0.98 },
 ];
 
 narrations.forEach(({ id, start, end }) => {

@@ -1,7 +1,7 @@
 # Extra Hypermarket — Agent Guide
 
 ## What this is
-Vanilla JS single-page site for Extra Hypermarket (Koyilandy, Kerala). No framework — plain HTML + CSS + JS with Vite bundler. Despite `react-three/fiber` in deps, React is **not used**; Three.js scenes are vanilla JS in `src/three/`.
+Vanilla JS single-page site for Extra Hypermarket (Koyilandy, Kerala). No framework — plain HTML + CSS + JS with Vite bundler.
 
 ## Quick commands
 ```
@@ -15,10 +15,11 @@ No linter, formatter, typecheck, or test suite configured.
 - **Entry**: `index.html` → `src/main.js` (ES module, `type: "module"`)
 - **Scroll system**: Lenis smooth scroll + GSAP ScrollTrigger. Single RAF ticker in `main.js` — do not add another `requestAnimationFrame` loop.
 - **Cinematic scroll**: 240 PNG frames (`src/images/ezgif-frame-001.png` through `ezgif-frame-240.png`) rendered to a fixed `<canvas>`. Scroll position (0–1) maps to frame index. Scroll height is `2400vh` (10vh per frame).
-- **CSS**: Two files only — `src/styles/main.css` (tokens, nav, glass, cursor, buttons) and `src/styles/sections.css` (all section layouts). No Tailwind at runtime despite `tailwind-merge` in deps.
-- **Three.js**: Four scenes in `src/three/` — `scene.js`, `storeTunnel.js`, `floatingProducts.js`, `cartAnimation.js`. Loaded separately, not via React.
-- **Audio**: `src/audio/soundManager.js` — toggle-based ambient sound.
-- **Preloader**: Fullscreen video (`src/logo/Extra_HYPER_MARKET_logo_loading.mp4`) with progress bar. Fades out after 5s. Canvas only renders after preloader hides.
+- **CSS**: Two files only — `src/styles/main.css` (tokens, nav, glass, cursor, buttons, hamburger, skip-link) and `src/styles/sections.css` (all section layouts). Loaded via `<link>` in HTML. No Tailwind at runtime.
+- **Audio**: `src/audio/soundManager.js` — Web Audio API synthesizer. Ambient drone, SFX, wind/highway noise. Phase-aware via `updateAmbience(progress)`.
+- **Preloader**: Fullscreen video (`src/logo/Extra_HYPER_MARKET_logo_loading.mp4`) with real-time chroma keying. 9.5s minimum display. Solid white background.
+- **Fonts**: Google Fonts loaded via `<link>` with `preconnect` in HTML `<head>` (not CSS `@import`).
+- **Accessibility**: Skip-to-content link, `:focus-visible` styles, ARIA on sound toggle, `aria-label` on star ratings, `sandbox` on Google Maps iframe.
 
 ## Critical constraints
 - **Brand**: Logo is `src/logo/logoextra.png`. Colors: red primary (`#D32F2F`), green accent (`#4CAF50`), black text. Dark green forest backgrounds — never black.
@@ -31,11 +32,9 @@ No linter, formatter, typecheck, or test suite configured.
 src/
   main.js              — All scroll, cursor, sound, reveal logic
   sequence/framePlayer.js — 240-frame canvas player (single class export)
-  three/               — Vanilla Three.js scenes (not React)
-  styles/main.css      — Design tokens, nav, glass, cursor, buttons
+  styles/main.css      — Design tokens, nav, glass, cursor, buttons, hamburger, skip-link
   styles/sections.css  — All section layouts, scroll height, phase triggers
-  audio/               — Sound manager
+  audio/               — Web Audio synthesizer
   images/              — 240 PNG frames (ezgif-frame-001..240.png)
   logo/                — Brand assets (logoextra.png, loading video)
-  components/logo.js   — SVG logo helpers (not currently imported)
 ```

@@ -71,6 +71,7 @@
 .cinema-narration.active {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -269,7 +270,7 @@
 
 /* Section 02: Kinetic Horizontal Typography */
 .kinetic-text-strip {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   position: relative;
   padding: clamp(20px, 4vh, 40px) 0;
@@ -291,27 +292,7 @@
   color: var(--brand-green);
 }
 
-/* Editorial Glass Cards — Translucent */
-.editorial-glass-box {
-  background: rgba(8, 20, 10, 0.45);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border-glass-bright);
-  padding: clamp(24px, 4vw, 44px) clamp(20px, 5vw, 50px);
-  border-radius: 24px;
-  box-shadow: var(--shadow-luxe);
-  max-width: 860px;
-  width: 100%;
-}
-
-.highlights-pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 14px;
-}
-
+/* Highlight Pills — inline in bento cards */
 .highlight-pill-item {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border-glass);
@@ -349,7 +330,6 @@
 
 .bento-col-8 { grid-column: span 8; }
 .bento-col-4 { grid-column: span 4; }
-.bento-col-6 { grid-column: span 6; }
 .bento-col-12 { grid-column: span 12; }
 
 .bento-card-inner {
@@ -649,16 +629,6 @@
   opacity: 1 !important;
 }
 
-.final-huge-brand {
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem, 14vw, 12rem);
-  line-height: 0.85;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-  margin-bottom: 16px;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
-}
-
 .final-brand-slogan {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4.8vw, 4rem);
@@ -744,7 +714,7 @@
 
 /* Responsiveness Guardrails */
 @media (max-width: 1024px) {
-  .bento-col-8, .bento-col-4, .bento-col-6 {
+  .bento-col-8, .bento-col-4 {
     grid-column: span 12;
   }
   .store-location-split {
@@ -755,23 +725,94 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  /* Bento grid: collapse to single column */
+  .bento-grid-wrap {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  /* Hero rating badge: wrap */
+  .hero-rating-badge {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+  }
+  /* Department cards: full width */
+  .offers-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  /* Social gallery: vertical scroll on mobile */
+  .social-gallery-track {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .social-film-card {
+    width: 92vw;
+    max-width: 400px;
+  }
+  .social-gallery-track {
+    animation: none;
+  }
+  /* Location split: stack */
+  .store-location-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  /* Map badge: full width */
+  .map-badge-overlay {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: 16px;
+  }
+  /* Footer: single column */
   .footer-content-wrap {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
-  .editorial-glass-box {
-    padding: 24px 16px;
+  /* FAQ: full width */
+  .faq-grid {
+    grid-template-columns: 1fr;
   }
-  .hero-actions-wrap {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
+  /* Phase title: reduce size */
+  .phase-title {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
   }
-  .hero-actions-wrap a {
-    width: 100%;
+  /* Section padding reduction */
+  #phase-1-approach,
+  #phase-2-entrance,
+  #phase-2-scale,
+  #phase-3-departments,
+  #phase-3-amenities,
+  #phase-4-offers,
+  #phase-4-location,
+  #phase-4-faq,
+  #phase-5-closing {
+    padding-left: clamp(12px, 4vw, 20px);
+    padding-right: clamp(12px, 4vw, 20px);
   }
-  .map-badge-overlay {
-    flex-direction: column;
-    align-items: flex-start;
+}
+
+@media (max-width: 480px) {
+  .hero-main-title {
+    font-size: clamp(2.2rem, 14vw, 3.8rem);
+  }
+  .kinetic-text-row {
+    font-size: clamp(2rem, 12vw, 3.5rem);
+  }
+  .bento-card-inner {
+    padding: 20px 16px;
+  }
+  .offer-editorial-card {
+    padding: 20px 16px;
+  }
+  .hero-rating-badge {
+    font-size: 0.7rem;
+    gap: 4px;
+    padding: 6px 12px;
   }
 }

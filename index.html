@@ -5,15 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EXTRA HYPERMARKET — Everything You Need. And A Little More. | Koyilandy, Kerala</title>
   <meta name="description" content="22,000 sq ft big-budget hypermarket in Koyilandy, Kerala. Rated 4.0 stars by 875+ shoppers. Farm-fresh produce, live bakery, groceries, home appliances and everyday value under one roof.">
-  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://extrahypermarket.in">
+  <meta property="og:title" content="EXTRA HYPERMARKET — Everything You Need. And A Little More.">
+  <meta property="og:description" content="22,000 sq ft big-budget hypermarket in Koyilandy, Kerala. Rated 4.0 stars by 875+ shoppers. Farm-fresh produce, live bakery, groceries, home appliances and everyday value under one roof.">
+  <meta property="og:image" content="./src/logo/logoextra.png">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EXTRA HYPERMARKET — Everything You Need. And A Little More.">
+  <meta name="twitter:description" content="22,000 sq ft big-budget hypermarket in Koyilandy, Kerala. Rated 4.0 stars by 875+ shoppers. Farm-fresh produce, live bakery, groceries, home appliances and everyday value under one roof.">
+  <meta name="twitter:image" content="./src/logo/logoextra.png">
+
+  <!-- Geo -->
+  <meta name="geo.region" content="IN-KL">
+  <meta name="geo.placename" content="Koyilandy">
+  <meta name="geo.position" content="11.453167;75.684998">
+  <meta name="ICBM" content="11.453167, 75.684998">
+
   <!-- Official Brand Favicon -->
   <link rel="icon" type="image/png" href="./src/logo/logo.png">
-  
+  <link rel="apple-touch-icon" href="./src/logo/logoextra.png">
+
+  <!-- Google Fonts: preconnect + stylesheet (replaces CSS @import for performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src https://maps.google.com https://www.google.com; connect-src 'self';">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GroceryStore",
+    "name": "Extra Hypermarket",
+    "alternateName": "Extra Hypermarket Koyilandy",
+    "url": "https://extrahypermarket.in",
+    "image": "./src/logo/logoextra.png",
+    "description": "22,000 sq ft big-budget hypermarket in Koyilandy, Kerala. Farm-fresh produce, live bakery, groceries, home appliances and everyday value under one roof.",
+    "telephone": "+918943212121",
+    "email": "extrahypermarket.kyd@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Koyilandy, Kerala",
+      "addressLocality": "Koyilandy",
+      "addressRegion": "Kerala",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 11.453167,
+      "longitude": 75.684998
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.0",
+      "reviewCount": "875",
+      "bestRating": "5"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/extra_hypermarket"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="./src/styles/main.css">
-  <link rel="stylesheet" href="./src/styles/sections.css">
+  <!-- Fonts loaded via <link> with preconnect above; app CSS imported in main.js for Vite processing -->
+
+  <!-- Fallback for no-JS -->
+  <noscript>
+    <style>
+      .cinema-stage-content { opacity: 1 !important; transform: none !important; }
+      #sequence-preloader { display: none !important; }
+      #scroll-container { position: static !important; height: auto !important; }
+    </style>
+  </noscript>
 </head>
 <body>
+  <!-- Skip to main content for keyboard/screen reader users -->
+  <a href="#phase-1-approach" class="skip-link">Skip to main content</a>
+
   <!-- Preloader Screen with Fullscreen Transparent Animated Video Only -->
   <div id="sequence-preloader">
     <div class="loader-video-wrap">
@@ -43,7 +128,13 @@
         <img src="./src/logo/logo.png" alt="Extra Hypermarket Logo" class="nav-logo-img">
       </a>
 
-      <ul class="nav-menu">
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="#phase-1-approach">Home</a></li>
         <li><a href="#phase-2-entrance">About</a></li>
         <li><a href="#phase-2-scale">Highlights</a></li>
@@ -56,7 +147,7 @@
 
       <div class="nav-actions">
         <!-- Sound Ambience Controller -->
-        <button class="sound-toggle-btn" id="sound-btn" title="Toggle Supermarket Ambience Sound">
+        <button class="sound-toggle-btn" id="sound-btn" title="Toggle Supermarket Ambience Sound" aria-pressed="false" aria-label="Toggle ambient sound">
           <div class="sound-wave" id="sound-wave">
             <span class="sound-bar"></span>
             <span class="sound-bar"></span>
@@ -97,7 +188,7 @@
       <section class="cinema-stage" id="phase-1-approach">
         <div class="cinema-stage-content active" id="content-hero">
           <div class="hero-rating-badge">
-            <span class="stars">★★★★☆</span>
+            <span class="stars" aria-label="4 out of 5 stars">★★★★☆</span>
             <span>4.0 (875+ GOOGLE REVIEWS)</span>
             <span style="color: var(--brand-green); font-weight: 800;">✓ VERIFIED</span>
             <span style="color: var(--brand-green); font-weight: 700; margin-left: 6px;">🚚 FREE DELIVERY</span>
@@ -222,7 +313,7 @@
 
               <div class="reviews-quote-grid">
                 <div class="review-item-card">
-                  <div class="review-stars">★★★★★</div>
+                  <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
                   <p class="review-text">
                     "Best price and most groceries, fruits, veg items available here. Friendly and supportive staff with convenient parking."
                   </p>
@@ -232,7 +323,7 @@
                 </div>
 
                 <div class="review-item-card">
-                  <div class="review-stars">★★★★★</div>
+                  <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
                   <p class="review-text">
                     "One of the things that I like most about Extra Hypermarket is its wide selection of fresh produce. The fruits and vegetables are always fresh and of high quality."
                   </p>
@@ -242,7 +333,7 @@
                 </div>
 
                 <div class="review-item-card">
-                  <div class="review-stars">★★★★★</div>
+                  <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
                   <p class="review-text">
                     "The best supermarket in Koyilandy with plenty of products and offers. Customer service is good with competitive wholesale pricing."
                   </p>
@@ -500,7 +591,8 @@
           <div class="interactive-map-frame">
             <iframe 
               title="Extra Hypermarket Koyilandy Map Location"
-              src="https://maps.google.com/maps?q=11.453167,75.684998&z=15&output=embed"
+              src="https://www.google.com/maps?q=11.453167,75.684998&z=15&output=embed"
+              sandbox="allow-scripts allow-same-origin"
               allowfullscreen="" 
               loading="lazy">
             </iframe>
@@ -744,7 +836,7 @@
             <a href="https://api.whatsapp.com/send?phone=8943212121" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: block; margin-bottom: 6px;">
               💬 WhatsApp: +91 8943 21 21 21
             </a>
-            <a href="http://extrahypermarket.in" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); text-decoration: none;">
+            <a href="https://extrahypermarket.in" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); text-decoration: none;">
               🌐 extrahypermarket.in
             </a>
           </div>
