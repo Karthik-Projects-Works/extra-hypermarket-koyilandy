@@ -1,6 +1,13 @@
 // Progressive Multi-Tier Lazy-Loaded 240-Frame Canvas Player
 // Features: Keyframe Striding, Priority Concurrency Queue, Off-Thread Async Decoding, Direction-Aware Windowing
 
+// Statically collected WebP frame URLs (Vite emits hashed assets for each)
+const frameAssets = import.meta.glob('../images/*.webp', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+});
+
 class FramePriorityQueue {
   constructor(maxConcurrency = 6) {
     this.maxConcurrency = maxConcurrency;
@@ -109,7 +116,7 @@ export class FrameSequencePlayer {
 
   getFrameUrl(index) {
     const frameNum = String(index + 1).padStart(3, '0');
-    return new URL(`../images/ezgif-frame-${frameNum}.png`, import.meta.url).href;
+    return frameAssets[`../images/ezgif-frame-${frameNum}.webp`];
   }
 
   /**

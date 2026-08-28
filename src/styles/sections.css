@@ -774,14 +774,6 @@
     grid-template-columns: 1fr;
     gap: 28px;
   }
-  /* FAQ: full width */
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
-  /* Phase title: reduce size */
-  .phase-title {
-    font-size: clamp(2rem, 5vw, 3rem) !important;
-  }
   /* Section padding reduction */
   #phase-1-approach,
   #phase-2-entrance,
@@ -790,8 +782,7 @@
   #phase-3-amenities,
   #phase-4-offers,
   #phase-4-location,
-  #phase-4-faq,
-  #phase-5-closing {
+  #phase-4-faq {
     padding-left: clamp(12px, 4vw, 20px);
     padding-right: clamp(12px, 4vw, 20px);
   }

@@ -26,6 +26,7 @@
 
   /* Text Contrast Hierarchy */
   --text-pure: #ffffff;
+  --text-bright: #ffffff;
   --text-muted: #dcfce7;
   --text-subtle: #86efac;
 
@@ -714,5 +715,21 @@ body {
   .nav-cta-btn {
     padding: 5px 9px;
     font-size: 0.6rem;
+  }
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .custom-cursor, .custom-cursor-dot, .cursor-label {
+    display: none !important;
+  }
+  .social-gallery-track {
+    animation: none !important;
   }
 }

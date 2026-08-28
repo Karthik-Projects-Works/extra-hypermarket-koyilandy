@@ -24,12 +24,13 @@ if (preloaderVideo && preloaderCanvas) {
 }
 
 // 1. Initialize Smooth Scroll with Lenis — flowing momentum & zero-stuck inertia
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const lenis = new Lenis({
   duration: 1.1,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   orientation: 'vertical',
   gestureOrientation: 'vertical',
-  smoothWheel: true,
+  smoothWheel: !prefersReducedMotion,
   wheelMultiplier: 1.15,
   touchMultiplier: 2.0,
   infinite: false,
@@ -162,17 +163,28 @@ if (soundBtn) {
 const hamburger = document.getElementById('nav-hamburger');
 const navMenu = document.getElementById('nav-menu');
 if (hamburger && navMenu) {
+  const closeMenu = () => {
+    navMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
   hamburger.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', String(isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = navMenu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    }
   });
   navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      closeMenu();
+      hamburger.focus();
+    }
   });
 }
 
