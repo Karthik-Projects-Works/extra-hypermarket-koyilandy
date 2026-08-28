@@ -186,6 +186,7 @@ if (soundBtn) {
 // 5. Scroll-Driven 240-Frame Sequence
 const hudLocText = document.getElementById('hud-location-text');
 let lastHudText = '';
+let lastPhase = 0;
 
 ScrollTrigger.create({
   trigger: '#scroll-container',
@@ -194,6 +195,22 @@ ScrollTrigger.create({
   onUpdate: (self) => {
     const p = self.progress;
     player.setProgress(p);
+    soundManager.updateAmbience(p);
+
+    // Determine current phase and trigger SFX on transitions
+    let currentPhase = 0;
+    if (p >= 0.90) currentPhase = 5;
+    else if (p >= 0.70) currentPhase = 4;
+    else if (p >= 0.40) currentPhase = 3;
+    else if (p >= 0.20) currentPhase = 2;
+    else currentPhase = 1;
+
+    if (currentPhase !== lastPhase) {
+      if (currentPhase === 2) soundManager.playScannerBeep();    // Entering store
+      if (currentPhase === 3) soundManager.playCartDrop();       // Inside aisles
+      if (currentPhase === 5) soundManager.playCelebration();    // Finale
+      lastPhase = currentPhase;
+    }
 
     let newText = '';
     if (p < 0.20) newText = 'APPROACHING EXTRA • KOYILANDY';
@@ -250,7 +267,7 @@ if (kineticRow) {
 const phases = [
   'phase-1-approach',
   'phase-2-entrance', 'phase-2-scale',
-  'phase-3-variety', 'phase-3-fresh', 'phase-3-value', 'phase-3-family',
+  'phase-3-variety', 'phase-3-departments', 'phase-3-amenities',
   'phase-4-location', 'phase-4-offers', 'phase-4-social',
   'phase-5-resolve'
 ];

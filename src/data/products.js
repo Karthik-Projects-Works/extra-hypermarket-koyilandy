@@ -1,63 +1,83 @@
 export const categories = [
   {
-    id: 'fresh',
-    name: 'Fresh Market',
-    tagline: 'Farm-Fresh Daily',
-    desc: 'Handpicked crisp vegetables, fresh regional fruits, organic greens and dairy directly from local farms every morning at 5 AM.',
+    id: 'essential-food',
+    name: 'Essential Food',
+    tagline: 'Quality Pantry Staples',
+    desc: 'Founded on an unwavering commitment to true health for everyone. Your purchase directly supports small family farmers and indigenous communities around the world. Fair labor practices and quality processing at the source.',
     color: '#10b981',
     accent: '#059669',
     icon: 'leaf',
-    items: ['Malabar Bananas', 'Hydroponic Lettuce', 'Organic Avocados', 'Fresh Farm Milk', 'Free Range Eggs', 'Vellayani Cucumbers']
+    items: ['Palakkadan Matta Rice', 'Cold Pressed Coconut Oil', 'Wayanad Cardamom & Pepper', 'Whole Grain Oats', 'Imported Olive Oil']
   },
   {
-    id: 'bakery',
-    name: 'Artisan Bakery',
-    tagline: 'Baked Fresh Every Hour',
-    desc: 'Oven-warm sourdough, golden buttery croissants, Malabar tea cakes, and handcrafted European artisan breads.',
-    color: '#f59e0b',
-    accent: '#d97706',
-    icon: 'croissant',
-    items: ['Sourdough Country Loaf', 'Butter Croissants', 'Cardamom Tea Cake', 'Garlic Herb Baguettes', 'Multigrain Rolls']
-  },
-  {
-    id: 'grocery',
-    name: 'Everyday Essentials',
-    tagline: 'Your Complete Pantry',
-    desc: 'Premium Matta & Basmati rice, cold-pressed oils, pure Wayanad spices, pulses, gourmet sauces and international delicacies.',
+    id: 'household',
+    name: 'Household Items',
+    tagline: 'Everything For Your Home',
+    desc: 'Tangible personal property for every room — from living rooms to kitchens, bedrooms to bathrooms. Air conditioners, cooking utensils, cleaning essentials, bedding, fans, refrigerators, and hundreds of daily home necessities.',
     color: '#3b82f6',
     accent: '#2563eb',
-    icon: 'shopping-basket',
-    items: ['Palakkadan Matta Rice', 'Wayanad Cardamom & Pepper', 'Cold Pressed Coconut Oil', 'Imported Olive Oil', 'Whole Grain Oats']
-  },
-  {
-    id: 'meat-seafood',
-    name: 'Meat & Seafood',
-    tagline: 'Freshness You Can See',
-    desc: 'Daily Arabian Sea catch, certified fresh halal cuts, cleaned and temperature-controlled for peak flavour and safety.',
-    color: '#ef4444',
-    accent: '#dc2626',
-    icon: 'fish',
-    items: ['Fresh Kingfish (Neymeen)', 'Tiger Prawns', 'Farm-Fresh Tender Chicken', 'Prime Mutton Cuts', 'Fresh Salmon Fillet']
-  },
-  {
-    id: 'home',
-    name: 'Home & Living',
-    tagline: 'Make Home Feel Extra',
-    desc: 'Modern kitchenware, smart storage systems, premium cast iron cookware, aromatic diffusers and eco-friendly cleaning solutions.',
-    color: '#8b5cf6',
-    accent: '#7c3aed',
     icon: 'home',
-    items: ['Tri-Ply Stainless Cookware', 'Airtight Glass Canisters', 'Cast Iron Skillets', 'Organic Room Sprays', 'Smart Microfiber Mops']
+    items: ['Cookware Sets', 'Storage Containers', 'Cleaning Supplies', 'Bedding & Linens', 'Kitchen Appliances']
   },
   {
-    id: 'family',
-    name: 'Family Zone',
-    tagline: 'Delight For Everyone',
-    desc: 'Educational toys, premium school stationery, baby care essentials, party novelties, and wholesome snacks.',
+    id: 'gifts',
+    name: 'Gift Items',
+    tagline: 'Personalized Gifting',
+    desc: 'Ready to give personalized gifts for your friends and family. Unique artwork, designs and photos on a huge assortment of products for every occasion and celebration.',
     color: '#ec4899',
     accent: '#db2777',
-    icon: 'smile',
-    items: ['STEM Learning Kits', 'Eco Wooden Toys', 'Premium Art Supplies', 'Gentle Baby Care', 'Family Board Games']
+    icon: 'gift',
+    items: ['Custom Gift Items', 'Festive Hampers', 'Photo Gifts', 'Party Novelties', 'Occasion Wrapping']
+  },
+  {
+    id: 'health-beauty',
+    name: 'Health & Beauty',
+    tagline: 'Glow With Confidence',
+    desc: 'Get glowing skin, gorgeous hair, and more with expert beauty tips and tricks. The best anti-aging creams, workout gear, hair care and wellness essentials from trusted global and Indian brands.',
+    color: '#06b6d4',
+    accent: '#0891b2',
+    icon: 'sparkles',
+    items: ['L\'Oréal Grooming', 'Nivea Skin Care', 'Dove Haircare', 'Colgate Oral Care', 'Wellness Essentials']
+  },
+  {
+    id: 'electronics',
+    name: 'Electronics',
+    tagline: 'Best Prices on Tech',
+    desc: 'The best shop for electronics, photos, electronic accessories and more at low prices. Top branded mixer grinders, induction stoves, kettles, steam irons, blenders, and daily electronics with manufacturer warranties.',
+    color: '#8b5cf6',
+    accent: '#7c3aed',
+    icon: 'zap',
+    items: ['Mixer Grinders', 'Induction Stoves', 'Electric Kettles', 'Steam Irons', 'Brand Warranties']
+  },
+  {
+    id: 'sports',
+    name: 'Sports Items',
+    tagline: 'Gear Up & Play',
+    desc: 'Wide range of Sports & Fitness from top brands. Explore now — equipment, activewear, and fitness accessories for every age and level.',
+    color: '#f97316',
+    accent: '#ea580c',
+    icon: 'trophy',
+    items: ['Fitness Equipment', 'Cricket Gear', 'Badminton Rackets', 'Yoga Mats', 'Sports Accessories']
+  },
+  {
+    id: 'school',
+    name: 'School Items',
+    tagline: 'Smart Back-to-School',
+    desc: 'The back-to-school shopping season made simple. Smart ways to save money while providing your child with the experience and excitement of getting ready for school. Lists, planning, and budgeting made easy.',
+    color: '#eab308',
+    accent: '#ca8a04',
+    icon: 'book-open',
+    items: ['Classmate Notebooks', 'Camlin Art Supplies', 'Papermate Pens', 'Maped School Gear', 'Office Essentials']
+  },
+  {
+    id: 'baby-care-toys',
+    name: 'Baby Care & Toys',
+    tagline: 'Largest Kids Store',
+    desc: 'Largest shopping store for kids and baby products. Buy baby care products, toys, educational kits, and essentials for your little ones — all under one roof.',
+    color: '#ef4444',
+    accent: '#dc2626',
+    icon: 'baby',
+    items: ['Pampers Baby Care', 'STEM Learning Kits', 'Eco Wooden Toys', 'Baby Nutrition', 'Family Board Games']
   }
 ];
 

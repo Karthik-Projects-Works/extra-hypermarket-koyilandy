@@ -5,11 +5,15 @@ class SoundManager {
     this.isMuted = true;
     this.ambientGain = null;
     this.droneOsc = null;
+    this.droneFilter = null;
     this.padOsc1 = null;
     this.padOsc2 = null;
+    this.padGain = null;
     this.cartNoise = null;
     this.cartGain = null;
     this.filter = null;
+    this.windGain = null;
+    this.highwayGain = null;
     this.initialized = false;
   }
 
@@ -38,6 +42,7 @@ class SoundManager {
       const droneFilter = this.ctx.createBiquadFilter();
       droneFilter.type = 'lowpass';
       droneFilter.frequency.setValueAtTime(220, this.ctx.currentTime);
+      this.droneFilter = droneFilter;
 
       this.droneOsc.connect(droneFilter);
       droneFilter.connect(this.ambientGain);
@@ -54,6 +59,7 @@ class SoundManager {
 
       const padGain = this.ctx.createGain();
       padGain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      this.padGain = padGain;
 
       this.padOsc1.connect(padGain);
       this.padOsc2.connect(padGain);
@@ -64,6 +70,12 @@ class SoundManager {
 
       // Cart Rolling Rumble simulation
       this.initCartRumble();
+
+      // Wind noise layer (outdoor ambience for approach phase)
+      this.initWindNoise();
+
+      // Highway noise layer (location phase)
+      this.initHighwayNoise();
 
       this.initialized = true;
     } catch (e) {
@@ -95,6 +107,62 @@ class SoundManager {
     whiteNoise.connect(noiseFilter);
     noiseFilter.connect(this.cartGain);
     this.cartGain.connect(this.masterGain);
+
+    whiteNoise.start();
+  }
+
+  initWindNoise() {
+    if (!this.ctx) return;
+    const bufferSize = this.ctx.sampleRate * 2;
+    const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = Math.random() * 2 - 1;
+    }
+
+    const whiteNoise = this.ctx.createBufferSource();
+    whiteNoise.buffer = noiseBuffer;
+    whiteNoise.loop = true;
+
+    const windFilter = this.ctx.createBiquadFilter();
+    windFilter.type = 'bandpass';
+    windFilter.frequency.setValueAtTime(400, this.ctx.currentTime);
+    windFilter.Q.setValueAtTime(0.5, this.ctx.currentTime);
+
+    this.windGain = this.ctx.createGain();
+    this.windGain.gain.setValueAtTime(0, this.ctx.currentTime);
+
+    whiteNoise.connect(windFilter);
+    windFilter.connect(this.windGain);
+    this.windGain.connect(this.masterGain);
+
+    whiteNoise.start();
+  }
+
+  initHighwayNoise() {
+    if (!this.ctx) return;
+    const bufferSize = this.ctx.sampleRate * 2;
+    const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = Math.random() * 2 - 1;
+    }
+
+    const whiteNoise = this.ctx.createBufferSource();
+    whiteNoise.buffer = noiseBuffer;
+    whiteNoise.loop = true;
+
+    const hwFilter = this.ctx.createBiquadFilter();
+    hwFilter.type = 'bandpass';
+    hwFilter.frequency.setValueAtTime(200, this.ctx.currentTime);
+    hwFilter.Q.setValueAtTime(1.2, this.ctx.currentTime);
+
+    this.highwayGain = this.ctx.createGain();
+    this.highwayGain.gain.setValueAtTime(0, this.ctx.currentTime);
+
+    whiteNoise.connect(hwFilter);
+    hwFilter.connect(this.highwayGain);
+    this.highwayGain.connect(this.masterGain);
 
     whiteNoise.start();
   }
@@ -198,6 +266,86 @@ class SoundManager {
     if (this.isMuted || !this.cartGain || !this.ctx) return;
     const clampedVelocity = Math.min(Math.abs(velocity) * 0.0008, 0.15);
     this.cartGain.gain.setTargetAtTime(clampedVelocity, this.ctx.currentTime, 0.1);
+  }
+
+  // Phase-specific ambient morphing driven by scroll progress (0–1)
+  updateAmbience(progress) {
+    if (this.isMuted || !this.initialized || !this.ctx) return;
+    const t = this.ctx.currentTime;
+    const p = Math.max(0, Math.min(1, progress));
+
+    // Ambient filter cutoff: 800 → 400 → 220 → 350 → 100 Hz
+    let filterFreq;
+    if (p < 0.20) {
+      filterFreq = 800 - (p / 0.20) * 400;       // 800 → 400
+    } else if (p < 0.40) {
+      filterFreq = 400 - ((p - 0.20) / 0.20) * 180; // 400 → 220
+    } else if (p < 0.70) {
+      filterFreq = 220 + ((p - 0.40) / 0.30) * 130; // 220 → 350
+    } else {
+      filterFreq = 350 - ((p - 0.70) / 0.30) * 250; // 350 → 100
+    }
+    if (this.droneFilter) {
+      this.droneFilter.frequency.setTargetAtTime(filterFreq, t, 0.3);
+    }
+
+    // Ambient gain: 0.12 → 0.15 → 0.22 → 0.16 → 0
+    let ambGain;
+    if (p < 0.20) {
+      ambGain = 0.12 + (p / 0.20) * 0.03;          // 0.12 → 0.15
+    } else if (p < 0.40) {
+      ambGain = 0.15 + ((p - 0.20) / 0.20) * 0.07; // 0.15 → 0.22
+    } else if (p < 0.70) {
+      ambGain = 0.22 - ((p - 0.40) / 0.30) * 0.06; // 0.22 → 0.16
+    } else {
+      ambGain = 0.16 * (1 - (p - 0.70) / 0.30);    // 0.16 → 0
+    }
+    if (this.ambientGain) {
+      this.ambientGain.gain.setTargetAtTime(ambGain, t, 0.3);
+    }
+
+    // Drone frequency: 130 → 110 → 100 → 120 → 80 Hz
+    let droneFreq;
+    if (p < 0.20) {
+      droneFreq = 130 - (p / 0.20) * 20;            // 130 → 110
+    } else if (p < 0.40) {
+      droneFreq = 110 - ((p - 0.20) / 0.20) * 10;   // 110 → 100
+    } else if (p < 0.70) {
+      droneFreq = 100 + ((p - 0.40) / 0.30) * 20;   // 100 → 120
+    } else {
+      droneFreq = 120 - ((p - 0.70) / 0.30) * 40;   // 120 → 80
+    }
+    if (this.droneOsc) {
+      this.droneOsc.frequency.setTargetAtTime(droneFreq, t, 0.3);
+    }
+
+    // Wind noise: full in phase 1, fades to 0 by end of phase 2
+    if (this.windGain) {
+      let windLevel;
+      if (p < 0.20) {
+        windLevel = 0.08;                            // steady outdoor wind
+      } else if (p < 0.40) {
+        windLevel = 0.08 * (1 - (p - 0.20) / 0.20); // fade out
+      } else {
+        windLevel = 0;
+      }
+      this.windGain.gain.setTargetAtTime(windLevel, t, 0.3);
+    }
+
+    // Highway noise: fades in at phase 4, fades out at phase 5
+    if (this.highwayGain) {
+      let hwLevel;
+      if (p < 0.70) {
+        hwLevel = 0;
+      } else if (p < 0.80) {
+        hwLevel = 0.06 * ((p - 0.70) / 0.10);       // fade in
+      } else if (p < 0.90) {
+        hwLevel = 0.06;                               // steady
+      } else {
+        hwLevel = 0.06 * (1 - (p - 0.90) / 0.10);   // fade out
+      }
+      this.highwayGain.gain.setTargetAtTime(hwLevel, t, 0.3);
+    }
   }
 }
 
