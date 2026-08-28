@@ -1,0 +1,8 @@
+# robots.txt — Extra Hypermarket
+User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/
+
+Sitemap: https://extrahypermarket.in/sitemap.xml

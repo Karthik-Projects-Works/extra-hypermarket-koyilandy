@@ -211,7 +211,9 @@ class SoundManager {
 
       osc.start();
       osc.stop(this.ctx.currentTime + 0.1);
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[SoundManager] Scanner beep failed:', e);
+    }
   }
 
   // Play Item Dropping / Whoosh into Shopping Cart
@@ -233,7 +235,9 @@ class SoundManager {
 
       osc.start();
       osc.stop(this.ctx.currentTime + 0.26);
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[SoundManager] Cart drop SFX failed:', e);
+    }
   }
 
   // Play Celebration / Mega Sale chime
@@ -258,7 +262,9 @@ class SoundManager {
         osc.start(startTime);
         osc.stop(startTime + 0.45);
       });
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[SoundManager] Celebration chime failed:', e);
+    }
   }
 
   // Modulate Cart Rumble intensity according to scroll velocity
